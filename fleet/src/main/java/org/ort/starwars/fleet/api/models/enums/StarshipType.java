@@ -1,5 +1,11 @@
 package org.ort.starwars.fleet.api.models.enums;
 
-public class StarshipType {
-    
+public enum StarshipType {
+    DESTROYER,
+    DREADNOUGHT,
+    STATION,
+    FIGHTER,
+    CRAFT,
+    CARGO,
+    OTHER
 }

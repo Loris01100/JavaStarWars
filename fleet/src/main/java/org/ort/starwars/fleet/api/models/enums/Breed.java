@@ -1,5 +1,9 @@
 package org.ort.starwars.fleet.api.models.enums;
 
-public class Breed {
-    
+public enum Breed {
+   HUMAN,
+   DROID,
+   WOOKIEE,
+   EWOK,
+   ANY 
 }
