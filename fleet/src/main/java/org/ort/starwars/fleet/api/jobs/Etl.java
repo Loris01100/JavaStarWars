@@ -1,29 +1,52 @@
 package org.ort.starwars.fleet.api.jobs;
 
-import org.ort.starwars.fleet.api.repositories.StaffRepository;
+import org.ort.starwars.fleet.api.gateways.SwapiService;
+import org.ort.starwars.fleet.api.gateways.dtos.SwapiPageDto;
+import org.ort.starwars.fleet.api.models.entities.Starship;
+import org.ort.starwars.fleet.api.models.enums.StarshipType;
 import org.ort.starwars.fleet.api.repositories.StarshipRepository;
+import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.scheduling.annotation.Scheduled;
-import org.springframework.transaction.annotation.Transactional;
+import org.springframework.stereotype.Component;
 
-import jakarta.annotation.PostConstruct;
-
+@Component
 public class Etl implements Runnable {
     
-    private static final org.slf4j.Logger LOGGER = LoggerFactory.getLogger(Etl.class);
-
-    @Autowired
-    private StarshipRepository repository;
-    @Autowired
-    private StaffRepository swapi;
-
-    @PostConstruct
-    @Scheduled(fixedRate = 36000000)
-    @Transactional
-
-    public void run() {
-        // ETL job implementation goes here
+    private static final Logger LOGGER = LoggerFactory.getLogger(Etl.class);
+    
+    private final StarshipRepository repository;
+    private final SwapiService swapiService;
+    
+    public Etl(StarshipRepository repository, SwapiService swapiService) {
+        this.repository = repository;
+        this.swapiService = swapiService;
     }
     
+    public void run() {
+        LOGGER.info("Import des vaisseaux...");
+        
+        SwapiPageDto page = swapiService.getStarships();
+        
+        page.getResults()
+            .stream()
+            .map(dto -> Starship.builder()
+                .name(dto.getName())
+                .category(StarshipType.FIGHTER)
+                .length(parseInt(dto.getLength()))
+                .crew(parseInt(dto.getCrew()))
+                .passengers(parseInt(dto.getPassengers()))
+                .count(1)
+                .build())
+            .forEach(repository::save);
+        
+        LOGGER.info("Import terminé");
+    }
+    
+    private int parseInt(String value) {
+        try {
+            return Integer.parseInt(value.replace(",", ""));
+        } catch (Exception e) {
+            return 0;
+        }
+    }
 }

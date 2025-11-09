@@ -36,4 +36,7 @@ public class Starship {
 
     @Column
     private int count;
+
+    @Column(unique = true)
+    private Long externalId;
 }
