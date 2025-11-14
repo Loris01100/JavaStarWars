@@ -22,6 +22,8 @@ public class Etl implements Runnable {
         this.swapiService = swapiService;
     }
     
+    //Permet l'import des vaisseaux depuis l'API SWAPI
+
     public void run() {
         LOGGER.info("Import des vaisseaux...");
         
@@ -42,6 +44,7 @@ public class Etl implements Runnable {
         LOGGER.info("Import terminé");
     }
     
+    //permet de gérer les expressions
     private int parseInt(String value) {
         try {
             return Integer.parseInt(value.replace(",", ""));
