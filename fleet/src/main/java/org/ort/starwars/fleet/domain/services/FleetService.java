@@ -2,8 +2,8 @@ package org.ort.starwars.fleet.domain.services;
 
 import org.ort.starwars.fleet.domain.models.entities.Mission;
 import org.ort.starwars.fleet.domain.models.entities.Starship;
-import org.ort.starwars.fleet.domain.repositories.MissionRepository;
-import org.ort.starwars.fleet.domain.repositories.StarshipRepository;
+import org.ort.starwars.fleet.domain.ports.in.IMissionPort;
+import org.ort.starwars.fleet.domain.ports.in.IStarshipPort;
 import org.springframework.lang.NonNull;
 import org.springframework.stereotype.Service;
 
@@ -14,10 +14,10 @@ import java.util.stream.StreamSupport;
 @Service
 public class FleetService {
     
-    private final StarshipRepository starshipRepository;
-    private final MissionRepository missionRepository;
+    private final IStarshipPort starshipRepository;
+    private final IMissionPort missionRepository;
     
-    public FleetService(StarshipRepository starshipRepository, MissionRepository missionRepository) {
+    public FleetService(IStarshipPort starshipRepository, IMissionPort missionRepository) {
         this.starshipRepository = starshipRepository;
         this.missionRepository = missionRepository;
     }

@@ -2,9 +2,9 @@ package org.ort.starwars.fleet.application.jobs;
 
 import org.ort.starwars.fleet.domain.models.entities.Starship;
 import org.ort.starwars.fleet.domain.models.enums.StarshipType;
-import org.ort.starwars.fleet.domain.repositories.StarshipRepository;
 import org.ort.starwars.fleet.infra.gateways.SwapiService;
 import org.ort.starwars.fleet.infra.gateways.dtos.SwapiPageDto;
+import org.ort.starwars.fleet.infra.repositories.StarshipRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
