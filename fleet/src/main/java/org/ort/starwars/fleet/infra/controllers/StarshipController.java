@@ -1,6 +1,6 @@
-package org.ort.starwars.fleet.api.controllers;
+package org.ort.starwars.fleet.infra.controllers;
 
-import org.ort.starwars.fleet.api.jobs.Etl;
+import org.ort.starwars.fleet.application.jobs.Etl;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 

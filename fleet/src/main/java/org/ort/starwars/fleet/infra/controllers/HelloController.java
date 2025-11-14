@@ -1,4 +1,4 @@
-package org.ort.starwars.fleet.api.controllers;
+package org.ort.starwars.fleet.infra.controllers;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 @RestController

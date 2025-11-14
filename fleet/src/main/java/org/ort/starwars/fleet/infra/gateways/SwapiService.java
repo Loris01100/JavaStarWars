@@ -1,6 +1,6 @@
-package org.ort.starwars.fleet.api.gateways;
+package org.ort.starwars.fleet.infra.gateways;
 
-import org.ort.starwars.fleet.api.gateways.dtos.SwapiPageDto;
+import org.ort.starwars.fleet.infra.gateways.dtos.SwapiPageDto;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 

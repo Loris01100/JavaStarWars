@@ -1,6 +1,6 @@
-package org.ort.starwars.fleet.api.repositories;
+package org.ort.starwars.fleet.domain.repositories;
 
-import org.ort.starwars.fleet.api.models.entities.Starship;
+import org.ort.starwars.fleet.domain.models.entities.Starship;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 

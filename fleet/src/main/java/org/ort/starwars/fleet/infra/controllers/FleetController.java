@@ -1,10 +1,10 @@
-package org.ort.starwars.fleet.api.controllers;
+package org.ort.starwars.fleet.infra.controllers;
 
 import java.util.List;
 
-import org.ort.starwars.fleet.api.models.entities.Mission;
-import org.ort.starwars.fleet.api.models.entities.Starship;
-import org.ort.starwars.fleet.api.services.FleetService;
+import org.ort.starwars.fleet.domain.models.entities.Mission;
+import org.ort.starwars.fleet.domain.models.entities.Starship;
+import org.ort.starwars.fleet.domain.services.FleetService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.lang.NonNull;
 import org.springframework.web.bind.annotation.RestController;

@@ -1,9 +1,9 @@
-package org.ort.starwars.fleet.api.services;
+package org.ort.starwars.fleet.domain.services;
 
-import org.ort.starwars.fleet.api.models.entities.Mission;
-import org.ort.starwars.fleet.api.models.entities.Starship;
-import org.ort.starwars.fleet.api.repositories.MissionRepository;
-import org.ort.starwars.fleet.api.repositories.StarshipRepository;
+import org.ort.starwars.fleet.domain.models.entities.Mission;
+import org.ort.starwars.fleet.domain.models.entities.Starship;
+import org.ort.starwars.fleet.domain.repositories.MissionRepository;
+import org.ort.starwars.fleet.domain.repositories.StarshipRepository;
 import org.springframework.lang.NonNull;
 import org.springframework.stereotype.Service;
 

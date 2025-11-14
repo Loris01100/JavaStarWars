@@ -1,6 +1,6 @@
-package org.ort.starwars.fleet.api.models.entities;
+package org.ort.starwars.fleet.domain.models.entities;
 
-import org.ort.starwars.fleet.api.models.enums.MissionType;
+import org.ort.starwars.fleet.domain.models.enums.StarshipType;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -19,18 +19,28 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-public class Mission {
+
+public class Starship {
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    
+
+    //caractéristiques du vaisseau
+    @Column
+    private String name;
     @Enumerated(EnumType.STRING)
-    private MissionType mission;
-    
+    private StarshipType category;
+    @Column
+    private int length;
+    @Column
+    private int crew;
     @Column
     private int passengers;
-    
+
     @Column
-    private boolean emergency;
+    private int count;
+
+    @Column(unique = true)
+    private Long externalId;
 }

@@ -1,4 +1,4 @@
-package org.ort.starwars.fleet.api.gateways.dtos;
+package org.ort.starwars.fleet.infra.gateways.dtos;
 
 import java.util.List;
 
